@@ -19,6 +19,7 @@ export class LoanDelayConfirmationComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLoan();
+    this.updateLoan();
   }
 
   getLoan(): void {
@@ -26,18 +27,19 @@ export class LoanDelayConfirmationComponent implements OnInit {
 
    if(id != 0) {
      this.loanService.getLoan(id).subscribe(data => this.loan = data);
+     
    } else {
      this.loan = new Loan(0, new Date(), false);
     }
-
- /* this.loanService.getLoan(this.loanId).subscribe(
-      (response: Loan) => {
-        console.log(response);
-        this.getLoan();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );*/
   }
+
+
+  updateLoan(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    console.log(this.loan.amount.valueOf)
+
+
+ 
+  }
+
 }

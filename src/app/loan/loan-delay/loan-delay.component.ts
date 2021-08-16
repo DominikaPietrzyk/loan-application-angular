@@ -28,7 +28,7 @@ export class LoanDelayComponent implements OnInit {
   onSubmit() {
     console.log(this.delayLoanModel);
     this.submitted = true;
-    this.loanService.addLoan(this.delayLoanModel).subscribe(Loan => {
+    this.loanService.getLoan(this.delayLoanModel.id).subscribe(Loan => {
       this.router.navigate([`/delayDialog/${Loan.id}`]);
     });
 }

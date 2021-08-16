@@ -16,14 +16,21 @@ export class DelayDialogComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router,private loanService: LoanService) { }
 
   ngOnInit(): void {
+
+    
+    this.loan.dueDate.setDate(this.loan.dueDate.getDay()+14)
+
   }
+
 
   onSubmit() {
     this.submitted = true;
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     if(id != 0) {
+
       this.loanService.getLoan(id).subscribe(data => this.loan = data);
+
     } else {
       this.loan = new Loan(0, new Date(), false);
      }

@@ -22,23 +22,43 @@ export class LoanFormComponent implements OnInit {
 
     this.loanForm = new FormGroup({
       'amount': new FormControl(null, [Validators.required, Validators.min(1), Validators.max(30000)]),
-      'dueDate': new FormControl(null, [Validators.required, this.validateDueDate])
+      'dueDate': new FormControl(null, [Validators.required, this.validateDueDate, this.hoursValidation])
     })
-
   }
 
   validateDueDate(c: FormControl) {
     const dueDate = new Date(c.value);
-    const actualDateTime = new Date();
     const actualDate = new Date();
     actualDate.setHours(0, 0, 0, 0);
 
-    const isValid = actualDateTime.getHours() >= 6 && actualDateTime.getHours() < 24 && dueDate >= actualDate;
+    const isValid = dueDate >= actualDate;
+
     return isValid ? null : {
       validateDueDate: {
         valid: true
       }
     };
+  }
+
+  hoursValidation(c: FormControl){
+    const actualDateTime = new Date();
+    const hours = actualDateTime.getHours();
+
+    const isValid = hours >= 6 && hours < 24 ;
+
+    return isValid ? null : {
+      hoursValidation: {
+        valid: true
+      }
+    };
+  }
+
+  get amount(){
+    return this.loanForm.get('amount') as FormControl;
+  }
+
+  get dueDate(){
+    return this.loanForm.get('dueDate') as FormControl;
   }
 
   onSubmit() {
@@ -47,7 +67,5 @@ export class LoanFormComponent implements OnInit {
     this.loanService.addLoan(this.loanForm.value).subscribe(Loan => {
       this.router.navigate([`/loanConfirmation/${Loan.id}`]);
     });
-
   }
-
 }

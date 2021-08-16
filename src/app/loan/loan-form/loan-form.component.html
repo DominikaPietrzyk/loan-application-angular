@@ -3,12 +3,12 @@
     <div class="form-group pl-3 pt-4">
         <label for="amount">Amount</label>
         <input formControlName="amount" type="number" class="form-control col-3" id="amount" placeholder="Enter amount"
-            [class.is-invalid]="loanForm.get('amount')?.touched && loanForm.get('amount')?.invalid">
+            [class.is-invalid]="amount.touched && amount.invalid">
 
         <div class="invalid-feedback">
-            <div *ngIf="loanForm.get('amount')?.errors?.required">Amount is required</div>
-            <div *ngIf="loanForm.get('amount')?.errors?.min">Amount should be minimum 1</div>
-            <div *ngIf="loanForm.get('amount')?.errors?.max">Amount should be maximum 30000</div>
+            <div *ngIf="amount?.errors?.required">Amount is required</div>
+            <div *ngIf="amount?.errors?.min">Amount should be minimum 1</div>
+            <div *ngIf="amount?.errors?.max">Amount should be maximum 30000</div>
         </div>
 
     </div>
@@ -16,10 +16,10 @@
     <div class="form-group pl-3 pt-4">
         <label>Date</label>
         <input formControlName="dueDate" id="datepicker" type="date" class="form-control col-3" placeholder="Date"
-            [class.is-invalid]="loanForm.touched && loanForm.get('dueDate')?.invalid">
+            [class.is-invalid]="dueDate.touched && dueDate.invalid">
 
         <div class="invalid-feedback">
-            <div *ngIf="loanForm.get('dueDate')?.errors?.required">Proper date is required</div>
+            <div *ngIf="dueDate?.errors?.required">Proper date is required</div>
             <div>Date is incorrect, choose a date present or a future date</div>
         </div>
     </div>
