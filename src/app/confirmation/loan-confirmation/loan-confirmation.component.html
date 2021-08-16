@@ -1,0 +1,28 @@
+<div class="alert alert-success font-weight-bold p-4 mb-4" role="alert">
+    Congratulations! You have been granted a loan.
+</div>
+
+<table class="table table-striped pt-4">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Due date</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Extension link</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <th scope="row">{{loan?.id}}</th>
+                <td>{{loan?.dueDate}}</td>
+                <td> {{loan?.amount}}</td>
+                <td>
+                    <a class="row-link" routerLink="/loanDelay"> Link </a>
+                </td>
+            </tr>
+    </tbody>
+</table>
+
+<div class="p-4">
+    <a class="btn btn-dark" routerLink="/home" role="button">Go back</a>
+</div>

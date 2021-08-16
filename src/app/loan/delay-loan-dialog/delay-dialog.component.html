@@ -1,0 +1,10 @@
+<form #delayDialogForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group pt-4 pl-3 font-weight-bold">
+        <p>Do you want to extend your loan repayment by 14 days?</p>
+    </div>
+
+    <div class="p-4">
+        <button type="submit" class="btn btn-dark mr-4">Yes</button>
+        <a class="btn btn-dark" routerLink="/home" role="button">No</a>
+    </div>
+</form>
