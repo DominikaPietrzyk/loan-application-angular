@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Loan } from 'src/app/model/loan';
 import { LoanService } from 'src/app/services/loan.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-delay-dialog',
@@ -15,6 +16,8 @@ export class DelayDialogComponent implements OnInit {
   id: number
   date: Date;
 
+
+
   constructor(private route: ActivatedRoute, private router: Router, private loanService: LoanService) { }
 
   ngOnInit(): void {
@@ -27,37 +30,27 @@ export class DelayDialogComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.loan = data;
+        this.loan.dueDate = new Date(data.dueDate)
       }, error => console.log(error));
   }
-
-  // onSubmit() {
-  //   this.submitted = true;
-  //   const id = Number(this.route.snapshot.paramMap.get('id'));
-
-  //   if (id != 0) {
-  //     this.loanService.getLoan(id).subscribe(data => this.loan = data);
-  //   }
-
-  //   this.date = new Date();
-  //   this.date.setDate(this.date.getDate() + 14);
-  //   console.log(this.date);
-
-  //   this.router.navigate([`/delayLoanConfirmation/${id}`]);
-  // }
 
   updateLoan() {
     this.loanService.updateLoan(this.id, this.loan)
       .subscribe(data => {
         console.log(data);
-        this.loan = new Loan();
-        //  this.loan.dueDate = this.updateLoanDate();
+       this.loan.dueDate = this.updateLoanDate();
         this.gotoConfirmation();
       }, error => console.log(error));
+      console.log(this.loan);
   }
 
 
-  updateLoanDate() {
-    return this.loan.dueDate.setDate(this.loan.dueDate.getDate() + 14);
+  updateLoanDate() : any {
+    console.log(this.loan.dueDate);
+    console.log(this.loan.isLoanDelay);
+    console.log(this.loan.dueDate.getDate());
+    this.loan.dueDate.setDate(this.loan.dueDate.getDate() + 14);
+    console.log(this.loan.dueDate);
   }
 
   onSubmit() {
