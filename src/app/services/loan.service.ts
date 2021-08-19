@@ -22,8 +22,8 @@ export class LoanService {
     return this.http.get<Loan[]>(`${this.apiServerUrl}/api/v1/loans`);
   }
 
-  updateLoan(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.apiServerUrl}/api/v1/loans/${id}`, value);
+  updateLoan(id: number, value: Loan): Observable<Loan> {
+    return this.http.put<Loan>(`${this.apiServerUrl}/api/v1/loans/${id}`, value);
   }
 
 }

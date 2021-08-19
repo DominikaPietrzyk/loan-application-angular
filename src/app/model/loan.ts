@@ -4,7 +4,7 @@ export class Loan {
     id: number;
     amount: number;
     dueDate: Date;
-    isLoanDelay: boolean;
+    loanDelay: boolean;
     client: Client
 
   

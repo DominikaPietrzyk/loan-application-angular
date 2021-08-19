@@ -7,6 +7,7 @@ import { DelayDialogComponent } from './loan/delay-loan-dialog/delay-dialog.comp
 import { HomeComponent } from './home/home.component';
 import { LoanDelayComponent } from './loan/loan-delay/loan-delay.component';
 import { LoanFormComponent } from './loan/loan-form/loan-form.component';
+import { LoanDelayErrorComponent } from './error/loan-delay-error/loan-delay-error.component';
 
 
 const appRoutes: Routes = [
@@ -17,7 +18,8 @@ const appRoutes: Routes = [
   { path: 'loanConfirmation/:id', component: LoanConfirmationComponent },
   { path: 'loanDelay', component: LoanDelayComponent },
   { path: 'delayDialog/:id', component: DelayDialogComponent },
-  { path: 'delayLoanConfirmation/:id', component: LoanDelayConfirmationComponent }
+  { path: 'delayLoanConfirmation/:id', component: LoanDelayConfirmationComponent },
+  {path: 'loanDelayError', component:LoanDelayErrorComponent}
 ];
 
 @NgModule({
