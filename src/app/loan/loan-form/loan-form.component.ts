@@ -1,6 +1,5 @@
-import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoanService } from 'src/app/services/loan.service';
 
@@ -15,8 +14,7 @@ export class LoanFormComponent implements OnInit {
   submitted = false;
 
   constructor(private loanService: LoanService,
-    private route: ActivatedRoute, private router: Router,
-    private fb: FormBuilder) { }
+    private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -40,24 +38,24 @@ export class LoanFormComponent implements OnInit {
     };
   }
 
-  hoursValidation(c: FormControl){
+  hoursValidation(c: FormControl) {
     const actualDateTime = new Date();
     const hours = actualDateTime.getHours();
 
-    const isValid = hours >= 6 && hours < 24 ;
+    const isValid = hours >= 6 && hours < 24;
 
     return isValid ? null : {
       hoursValidation: {
-        valid: true
+        valid: true,
       }
-    };
+    }
   }
 
-  get amount(){
+  get amount() {
     return this.loanForm.get('amount') as FormControl;
   }
 
-  get dueDate(){
+  get dueDate() {
     return this.loanForm.get('dueDate') as FormControl;
   }
 

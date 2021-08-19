@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Loan } from 'src/app/model/loan';
 import { LoanService } from 'src/app/services/loan.service';
 
 @Component({
@@ -8,28 +8,32 @@ import { LoanService } from 'src/app/services/loan.service';
   templateUrl: './loan-delay.component.html',
   styleUrls: ['./loan-delay.component.css']
 })
+
 export class LoanDelayComponent implements OnInit {
 
   submitted = false;
-  delayLoanModel= new Loan(4500, new Date(Date.parse("16-08-2021")), false);
+  delayForm: FormGroup
+
   constructor(private route: ActivatedRoute, private router: Router,
     private loanService: LoanService) { }
 
   ngOnInit(): void {
+    this.delayForm = new FormGroup({
+      'id': new FormControl(null, [Validators.required]),
+    })
   }
 
-  // onSubmit() {
-  //   console.log(this.delayLoanModel);
-  //   this.submitted = true;
-  //   //this.loanService.addLoan(this.loanDelayModel).subscribe(Loan => this.loanDelayModel = Loan);
-  //   this.router.navigate(["/delayDialog"]);
-  // }
+  get id() {
+    return this.delayForm.get('id') as FormControl;
+  }
 
   onSubmit() {
-    console.log(this.delayLoanModel);
+    console.log(this.delayForm.value);
     this.submitted = true;
-    this.loanService.getLoan(this.delayLoanModel.id).subscribe(Loan => {
+
+    this.loanService.getLoan(this.delayForm.value.id).subscribe(Loan => {
       this.router.navigate([`/delayDialog/${Loan.id}`]);
+
     });
-}
+  }
 }

@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClientComponent } from './client/client.component';
 
-import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoanFormComponent } from './loan/loan-form/loan-form.component';
 import { LoanDelayComponent } from './loan/loan-delay/loan-delay.component';

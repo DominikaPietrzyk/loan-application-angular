@@ -9,37 +9,35 @@ import { LoanService } from 'src/app/services/loan.service';
   templateUrl: './loan-confirmation.component.html',
   styleUrls: ['./loan-confirmation.component.css']
 })
+
 export class LoanConfirmationComponent implements OnInit {
-
-
-  public loan : Loan
-
+  public loan: Loan
   loanId: number
 
-  constructor(private loanService : LoanService,
-    private route:ActivatedRoute, private router:Router) { }
+  constructor(private loanService: LoanService,
+    private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.getLoan();
   }
 
   getLoan(): void {
-   const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = Number(this.route.snapshot.paramMap.get('id'));
 
-   if(id != 0) {
-     this.loanService.getLoan(id).subscribe(data => this.loan = data);
-   } else {
-     this.loan = new Loan(0, new Date(), false);
-    }
 
- /* this.loanService.getLoan(this.loanId).subscribe(
-      (response: Loan) => {
-        console.log(response);
-        this.getLoan();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );*/
+    if (id != 0) {
+      this.loanService.getLoan(id).subscribe(data => this.loan = data);
+
+    } 
+
+    /* this.loanService.getLoan(this.loanId).subscribe(
+         (response: Loan) => {
+           console.log(response);
+           this.getLoan();
+         },
+         (error: HttpErrorResponse) => {
+           alert(error.message);
+         }
+       );*/
   }
 }

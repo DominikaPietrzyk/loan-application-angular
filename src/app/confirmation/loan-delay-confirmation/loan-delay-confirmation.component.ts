@@ -8,14 +8,14 @@ import { LoanService } from 'src/app/services/loan.service';
   templateUrl: './loan-delay-confirmation.component.html',
   styleUrls: ['./loan-delay-confirmation.component.css']
 })
+
 export class LoanDelayConfirmationComponent implements OnInit {
 
-  public loan : Loan
-
+  public loan: Loan
   loanId: number
 
-  constructor(private loanService : LoanService,
-    private route:ActivatedRoute, private router:Router) { }
+  constructor(private loanService: LoanService,
+    private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.getLoan();
@@ -23,23 +23,16 @@ export class LoanDelayConfirmationComponent implements OnInit {
   }
 
   getLoan(): void {
-   const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = Number(this.route.snapshot.paramMap.get('id'));
 
-   if(id != 0) {
-     this.loanService.getLoan(id).subscribe(data => this.loan = data);
-     
-   } else {
-     this.loan = new Loan(0, new Date(), false);
+    if (id != 0) {
+      this.loanService.getLoan(id).subscribe(data => this.loan = data);
+
     }
   }
 
-
   updateLoan(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(this.loan.amount.valueOf)
-
-
- 
+    console.log();
   }
-
 }

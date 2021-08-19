@@ -1,5 +1,9 @@
 <form [formGroup]="loanForm" (ngSubmit)="onSubmit()" #localForm="ngForm" novalidate>
 
+    <div class="alert alert-danger" *ngIf="amount.touched && !amount.valid && dueDate.touched && !dueDate.valid ">
+        <p>Please correct errors below</p>
+    </div>
+
     <div class="form-group pl-3 pt-4">
         <label for="amount">Amount</label>
         <input formControlName="amount" type="number" class="form-control col-3" id="amount" placeholder="Enter amount"
@@ -20,7 +24,7 @@
 
         <div class="invalid-feedback">
             <div *ngIf="dueDate?.errors?.required">Proper date is required</div>
-            <div>Date is incorrect, choose a date present or a future date</div>
+            <div> Date is incorrect, choose a date present or a future date</div>
         </div>
     </div>
 
