@@ -12,7 +12,6 @@ import { LoanConfirmationComponent } from './confirmation/loan-confirmation/loan
 import { LoanDelayConfirmationComponent } from './confirmation/loan-delay-confirmation/loan-delay-confirmation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DelayDialogComponent } from './loan/delay-loan-dialog/delay-dialog.component';
-import { LoanFormErrorComponent } from './error/loan-form-error/loan-form-error.component';
 import { LoanDelayErrorComponent } from './error/loan-delay-error/loan-delay-error.component';
 
 
@@ -26,7 +25,6 @@ import { LoanDelayErrorComponent } from './error/loan-delay-error/loan-delay-err
     LoanConfirmationComponent,
     LoanDelayConfirmationComponent,
     DelayDialogComponent,
-    LoanFormErrorComponent,
     LoanDelayErrorComponent
   ],
   imports: [

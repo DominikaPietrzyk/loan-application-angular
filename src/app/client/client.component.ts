@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Client } from '../model/client';
 import { ClientService } from '../services/client.service';
 
 @Component({
@@ -36,9 +37,8 @@ export class ClientComponent implements OnInit {
   onSubmit() {
     console.log(this.clientForm.value);
     this.submitted = true;
-    this.clientService.addClient(this.clientForm.value).subscribe();
-
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.router.navigate([`clientForm/${id}/loanForm`]);
+    this.clientService.addClient(this.clientForm.value).subscribe(Client => {
+      this.router.navigate([`clientForm/${Client.id}/loanForm`]);
+    });
   }
 }

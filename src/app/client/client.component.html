@@ -11,9 +11,11 @@
             class="form-control col-3 " id="firstName" placeholder="Enter your first name">
 
         <div class="invalid-feedback">
-            <div *ngIf="firstName?.errors?.required">First name is required</div>
-            <div *ngIf="firstName?.errors?.minlength">First name should be minimum 3 characters </div>
-            <div *ngIf="firstName?.errors?.maxlength">First name should be maximum 100 characters </div>
+            <div *ngIf="firstName?.errors?.required" class="alert font-weight-bold">First name is required</div>
+            <div *ngIf="firstName?.errors?.minlength" class="alert font-weight-bold">First name should be minimum 3
+                characters </div>
+            <div *ngIf="firstName?.errors?.maxlength" class="alert font-weight-bold">First name should be maximum 100
+                characters </div>
         </div>
     </div>
     <div class="form-group pl-3">
@@ -22,9 +24,11 @@
             class="form-control col-3" id="lastName" placeholder="Enter your last name">
 
         <div class="invalid-feedback">
-            <div *ngIf="lastName?.errors?.required">Last name is required</div>
-            <div *ngIf="lastName?.errors?.minlength">Last name should be minimum 3 characters </div>
-            <div *ngIf="lastName?.errors?.maxlength">Last name should be maximum 100 characters </div>
+            <div *ngIf="lastName?.errors?.required" class="alert font-weight-bold">Last name is required</div>
+            <div *ngIf="lastName?.errors?.minlength" class="alert font-weight-bold">Last name should be minimum 3
+                characters </div>
+            <div *ngIf="lastName?.errors?.maxlength" class="alert font-weight-bold">Last name should be maximum 100
+                characters </div>
         </div>
     </div>
 

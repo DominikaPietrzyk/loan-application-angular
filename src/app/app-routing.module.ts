@@ -13,7 +13,7 @@ import { LoanDelayErrorComponent } from './error/loan-delay-error/loan-delay-err
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'clientForm/:id', component: ClientComponent },
+  { path: 'clientForm', component: ClientComponent },
   { path: 'clientForm/:id/loanForm', component: LoanFormComponent },
   { path: 'loanConfirmation/:id', component: LoanConfirmationComponent },
   { path: 'loanDelay', component: LoanDelayComponent },

@@ -10,9 +10,9 @@
             [class.is-invalid]="amount.touched && amount.invalid">
 
         <div class="invalid-feedback">
-            <div *ngIf="amount?.errors?.required">Amount is required</div>
-            <div *ngIf="amount?.errors?.min">Amount should be minimum 1</div>
-            <div *ngIf="amount?.errors?.max">Amount should be maximum 30000</div>
+            <div *ngIf="amount?.errors?.required" class="alert font-weight-bold">Amount is required</div>
+            <div *ngIf="amount?.errors?.min" class="alert font-weight-bold">Amount should be minimum 1</div>
+            <div *ngIf="amount?.errors?.max" class="alert font-weight-bold">Amount should be maximum 30000</div>
         </div>
 
     </div>
@@ -23,8 +23,12 @@
             [class.is-invalid]="dueDate.touched && dueDate.invalid">
 
         <div class="invalid-feedback">
-            <div *ngIf="dueDate?.errors?.required">Proper date is required</div>
-            <div> Date is incorrect, choose a date present or a future date</div>
+            <div *ngIf="dueDate?.errors?.required" class="alert font-weight-bold">Proper date is required</div>
+            <div *ngIf="dueDate?.errors?.validateDueDate" class="alert font-weight-bold">Date is incorrect, choose a
+                date present or a future date
+            </div>
+            <div *ngIf="dueDate?.errors?.hoursValidation" class="alert font-weight-bold">You can apply for a loan
+                between 6 a.m. and 24 a.m !</div>
         </div>
     </div>
 
