@@ -13,12 +13,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
-  client: Client = new Client(5,"","");
-
   ngOnInit(): void {
-  }
-
-  onClik(id : number){
-    this.router.navigate([`/clientForm`,id])
   }
 }

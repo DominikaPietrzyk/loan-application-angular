@@ -1,4 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Loan } from 'src/app/model/loan';
@@ -24,20 +23,8 @@ export class LoanConfirmationComponent implements OnInit {
   getLoan(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-
     if (id != 0) {
       this.loanService.getLoan(id).subscribe(data => this.loan = data);
-
-    } 
-
-    /* this.loanService.getLoan(this.loanId).subscribe(
-         (response: Loan) => {
-           console.log(response);
-           this.getLoan();
-         },
-         (error: HttpErrorResponse) => {
-           alert(error.message);
-         }
-       );*/
+    }
   }
 }

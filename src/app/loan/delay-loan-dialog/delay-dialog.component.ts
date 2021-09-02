@@ -21,7 +21,6 @@ export class DelayDialogComponent implements OnInit {
 
     this.loanService.getLoan(this.id)
       .subscribe(data => {
-        console.log(data)
         this.loan = data;
         this.loan.dueDate = new Date(data.dueDate)
       }, error => console.log(error));
@@ -39,7 +38,6 @@ export class DelayDialogComponent implements OnInit {
 
       this.loanService.updateLoan(this.id, this.loan)
         .subscribe(data => {
-          console.log(data);
           this.goToConfirmation();
         }, error => console.log(error));
 

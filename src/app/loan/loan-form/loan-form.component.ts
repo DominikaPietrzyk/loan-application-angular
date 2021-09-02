@@ -42,12 +42,12 @@ export class LoanFormComponent implements OnInit {
     const actualDateTime = new Date();
     const hours = actualDateTime.getHours();
 
-    const isValid = hours < 6 && hours < 24;
+    const isValid = hours > 6 && hours < 24;
 
     return isValid ? null : {
       hoursValidation: {
         valid: true,
-      } 
+      }
     }
   }
 

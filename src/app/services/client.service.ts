@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ClientService {
-  private apiServerUrl = environment.apiBaseUrl;
+   apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 
@@ -16,13 +16,5 @@ export class ClientService {
 
   public addClient(client: Client): Observable<Client> {
     return this.http.post<Client>(`${this.apiServerUrl}/api/v1/clients`, client);
-  }
-
-  public updateClient(client: Client): Observable<Client> {
-    return this.http.put<Client>(`${this.apiServerUrl}/api/v1/clients`, client);
-  }
-
-  public deleteClient(clientId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/api/v1/clients/${clientId}`);
   }
 }
