@@ -63,7 +63,7 @@ describe('LoanFormComponent', () => {
     dueDate.setValue(new Date('12-12-2021'));
     expect(dueDate?.errors?.required).toBeFalsy();
     expect(dueDate?.errors?.validateDueDate).toBeFalsy();
-    expect(dueDate?.errors?.hoursValidation).toBeTruthy();
+    expect(dueDate?.errors?.hoursValidation).toBeFalsy();
   });
 
 });
